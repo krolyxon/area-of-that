@@ -8,7 +8,7 @@ struct Sides {
 }
 
 fn main() {
-    println!("Enter the type of shape \n[1.Triangle  2.Rectangle  3.Square]");
+    println!("Enter the type of shape \n[1.Triangle  2.Rectangle  3.Square  4. Parallelogram]");
     let mut shape_type = String::new();
     io::stdin()
         .read_line(&mut shape_type)
@@ -25,6 +25,7 @@ fn main() {
         "1" => area_of_triangle(&sides),
         "2" => area_of_rectangle(&sides),
         "3" => area_of_square(&sides),
+        "4" => area_of_parallelogram(&sides),
         _ => println!("Shut the fuck up, maths is hard. i cant implement more formulas."),
     };
 }
@@ -37,6 +38,8 @@ fn create_struct(side: &str) -> f32 {
         .expect("Not a valid floating point number, please try again.");
     return var.trim().parse().expect("lmao");
 }
+
+// Area of Triangle
 fn area_of_triangle(sides: &Sides) {
     println!("Its a triange");
     println!(
@@ -44,6 +47,8 @@ fn area_of_triangle(sides: &Sides) {
         (sides.base * sides.height) / 2.0
     );
 }
+
+// Area of Rectangle
 fn area_of_rectangle(sides: &Sides) {
     println!("Its a rectangle");
     println!(
@@ -51,7 +56,15 @@ fn area_of_rectangle(sides: &Sides) {
         sides.length * sides.breadth
     );
 }
+
+// Area of Square
 fn area_of_square(sides: &Sides) {
     println!("Its a square");
     println!("The area of this Square is {}", sides.length * sides.length);
+}
+
+// Area of Parallelogram
+fn area_of_parallelogram(sides: &Sides) {
+    println!("its a parallelogram");
+    println!("The area of parallelogram is {}", sides.base * sides.height);
 }
